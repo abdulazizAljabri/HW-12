@@ -1,0 +1,67 @@
+ 
+ The @Qualifier is using to change Springboot context 
+ 
+ -----------------------------------
+ Q1 :  Output is : hey from message1
+ because Using @Bean  this for run a method .
+ 
+ -----------------------------------------------
+ 
+ Q2 : Output is : hey from message1 
+                  hey from message2
+  because Using @Qualifier to chage Springboot context 
+ in this class using @Qualifier("1").
+ 
+ ----------------------------------
+ 
+Q3 : Output is : we have two impossible output :
+ 
+ hey from message1 
+ hey from message3 
+ hey from message2
+ 
+ Or
+ 
+ hey from message3
+ hey from message2
+ hey from message1
+ 
+ because method getmessage2 should run after method getmessage3 
+ using @Qualifier("3").
+ 
+ method getmessage1 can run any order First or last because this method not have any @Qualifier.
+ 
+ -----------------------------------------
+ 
+ Q4 : Output is : we have two impossible output :
+ 
+ hey from message3
+ hey from message2
+ hey from message1
+ hey from main controller
+ 
+ Or
+ 
+ hey from message1
+ hey from main controller
+ hey from message3
+ hey from message2
+ 
+ because getmainController should run after method getmessage1 because using @Qualifier("1")
+ and method getmessage2 should run after method getmessage3 because using @Qualifier("3").
+ 
+ ---------------------------------------------------
+ 
+ Q5 : Output is :  hey from message3
+                   hey from message2
+                   hey from controller
+                   hey from message1
+                   
+because getmessage2 should run after method getmessage3 because @Qualifier("3")
+and method mainController should run after method getmessage2 because @Qualifier("2").
+
+------------------------------------------------
+ 
+ 
+ 
+ 

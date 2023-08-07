@@ -38,16 +38,14 @@ Q3 : Output is : we have two impossible output :
  hey from message3
  hey from message2
  hey from message1
- hey from main controller
  
  Or
  
  hey from message1
- hey from main controller
  hey from message3
  hey from message2
  
- because getmainController should run after method getmessage1 because using @Qualifier("1")
+ because getmainController should not run because missing @Bean up method 
  and method getmessage2 should run after method getmessage3 because using @Qualifier("3").
  
  ---------------------------------------------------
@@ -58,8 +56,8 @@ Q3 : Output is : we have two impossible output :
                    hey from message1
                    
 because getmessage2 should run after method getmessage3 because @Qualifier("3")
-and method mainController should run after method getmessage2 because @Qualifier("2").
-
+and method mainController should run after method getmessage2 because @Qualifier("2") 
+beacuse method getmessage need object from mainControlloer .
 ------------------------------------------------
  
  
